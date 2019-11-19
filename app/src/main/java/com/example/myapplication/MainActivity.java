@@ -62,16 +62,17 @@ public class MainActivity extends AppCompatActivity {
          } else if (degree > 51) {
              money = 12.075f * degree - 110.25f;
          }
+         Intent intent = new Intent(this,ResultActivity.class);
+         intent.putExtra("MONEY",money);
+         startActivity(intent);
 /*
-
                 new AlertDialog.Builder(this)
                         .setTitle("每月抄表費用")
                         .setMessage("費用: " + money)
                         .setPositiveButton("ok", null)
                         .show();
          */
-     } Intent intent = new Intent(this,ResultActivity.class);
-      startActivity(intent);
+     }
 
         if (!TextUtils.isEmpty(edNext.getText().toString())) {
             float degree = Float.parseFloat(edNext.getText().toString());
@@ -85,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (degree > 101) {
                 money = 12.075f * degree - 220.5f;
             }
+            Intent intent = new Intent(this,ResultActivity.class);
+            intent.putExtra("MONEY",money);
+            startActivity(intent);
 //            new AlertDialog.Builder(this)
 //                    .setTitle("隔月抄表費用")
 //                    .setMessage("費用: " + money)
