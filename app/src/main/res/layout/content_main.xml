@@ -13,24 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="152dp"
-        android:text="每月費用"
+        android:text="@string/monthly"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="隔月費用"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/text"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/text"
-        app:layout_constraintTop_toBottomOf="@+id/month" />
 
     <EditText
         android:id="@+id/month"
@@ -44,26 +32,25 @@
         app:layout_constraintStart_toStartOf="@+id/text"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
-    <EditText
-        android:id="@+id/next"
+    <Switch
+        android:id="@+id/sw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/monthly"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="計算"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/next" />
+        android:layout_marginTop="64dp"
+        android:text="@string/water_fee"
+        app:layout_constraintEnd_toEndOf="@+id/month"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/month"
+        app:layout_constraintTop_toBottomOf="@+id/month" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

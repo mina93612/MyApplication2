@@ -19,7 +19,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText edMonth;
-    private EditText edNext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         edMonth = findViewById(R.id.month);
-        edNext = findViewById(R.id.next);
-
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,32 +47,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void calculation(){
-     if (!TextUtils.isEmpty(edMonth.getText().toString())){
-         float degree =Float.parseFloat(edMonth.getText().toString());
-         float money = 0;
-         if (degree < 11) {
-             money = 7.35f * degree;
-         } else if (degree < 31) {
-             money = 9.45f * degree - 21.0f;
-         } else if (degree < 50) {
-             money = 11.55f * degree - 84.0f;
-         } else if (degree > 51) {
-             money = 12.075f * degree - 110.25f;
-         }
-         Intent intent = new Intent(this,ResultActivity.class);
-         intent.putExtra("MONEY",money);
-         startActivity(intent);
-/*
-                new AlertDialog.Builder(this)
-                        .setTitle("每月抄表費用")
-                        .setMessage("費用: " + money)
-                        .setPositiveButton("ok", null)
-                        .show();
-         */
-     }
+    public void calculation() {
+        if (!TextUtils.isEmpty(edMonth.getText().toString())) {
+            float degree = Float.parseFloat(edMonth.getText().toString());
+            float money = 0;
+            if (degree < 11) {
+                money = 7.35f * degree;
+            } else if (degree < 31) {
+                money = 9.45f * degree - 21.0f;
+            } else if (degree < 50) {
+                money = 11.55f * degree - 84.0f;
+            } else if (degree > 51) {
+                money = 12.075f * degree - 110.25f;
+            }
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra(getString(R.string.money), money);
+            startActivity(intent);
 
-        if (!TextUtils.isEmpty(edNext.getText().toString())) {
+//                           new AlertDialog.Builder(this)
+//                               .setTitle("每月抄表費用")
+//                               .setMessage("費用: " + money)
+//                               .setPositiveButton("ok", null)
+//                               .show();
+
+
+        }
+    }
+}
+
+     /*  if (!TextUtils.isEmpty(edNext.getText().toString())) {
             float degree = Float.parseFloat(edNext.getText().toString());
             float money = 0;
             if (degree < 21) {
@@ -87,8 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 money = 12.075f * degree - 220.5f;
             }
             Intent intent = new Intent(this,ResultActivity.class);
-            intent.putExtra("MONEY",money);
+            intent.putExtra(getString(R.string.money),money);
             startActivity(intent);
+            /*
 //            new AlertDialog.Builder(this)
 //                    .setTitle("隔月抄表費用")
 //                    .setMessage("費用: " + money)
