@@ -10,14 +10,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private EditText edMonth;
 
 
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         edMonth = findViewById(R.id.month);
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.calculation);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +47,42 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Switch sw = findViewById(R.id.sw);
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            }
+        });
+        Spinner cities = findViewById(R.id.spinner);
+        cities
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG,"OnStart");
+        // The activity is about to become visible.
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
 
 
     public void calculation() {
